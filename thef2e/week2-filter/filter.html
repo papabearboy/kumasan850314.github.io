@@ -124,7 +124,7 @@
                   <th>tags</th>
                   <th>url</th>
                 </tr>
-                <tr v-show="(selectedstages=='' || selectedtags=='') && length!=0 " v-for="(r, index) in filteredRows.slice(pageStart, pageStart + countOfPage)">
+                <tr v-show="(selectedstages=='' && selectedtags=='') && length!=0 " v-for="(r, index) in filteredRows.slice(pageStart, pageStart + countOfPage)">
                   <td>{{ r.stage }}</td>
                   <td>{{ r.tag }}</td>
                   <td><a v-bind:href="r.url" target="_blank">click</a></td>
