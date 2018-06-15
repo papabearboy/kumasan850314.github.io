@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>week2 - filter</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.1/vue-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+<link href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet" type="text/css" />
+<link rel=stylesheet type="text/css" href="./filter.css">
+</head>
+<body>
+    
+    <div class="header">
+        <div class="headertitle">
+            The F2e Api
+        </div>
+        <div class="headersearch">
+            
+        </div>
+    </div>
+
+        <!--  
+        main 
+        -->
+
+    <div class="main" id="app">
+        <!--  
+        main > sidemenu
+        -->        
+        <div class="sidemenu">
+            <!--  
+            main > stages
+            -->
+            <div class="stages">
+                <div class="stagestitle">
+                    <h2>關卡</h2>
+                </div>
+                <transition name="fold">
+                    <div class="stageflex" v-show="stagesarrow">
+                        <select v-model="selectedstages" @change="selectstages()">
+                            <option disabled value="">請選擇</option>
+                            <div class="stage1"><option value="1">關卡1 - todo list</option></div>
+                            <div class="stage2"><option value="2">關卡2 - filter</option></div>
+                            <div class="stage3"><option value="3">關卡3</option></div>
+                            <div class="stage4"><option value="4">關卡4</option></div>
+                            <div class="stage5"><option value="5">關卡5</option></div>
+                            <div class="stage6"><option value="6">關卡6</option></div>
+                            <div class="stage7"><option value="7">關卡7</option></div>
+                            <div class="stage8"><option value="8">關卡8</option></div>
+                        </select>
+                    </div>
+                </transition>
+            </div>
+            <!--  
+                main > tags
+            -->
+            <div class="tags">
+                <div class="tagstitle">
+                    <h2>Tags</h2>
+                </div>
+                <transition name="fold">
+                <div class="tagsflex" v-show="tagsarrow">
+                    <select v-model="selectedtags" @change="selecttags()">
+                        <option disabled value="">請選擇</option>
+                        <div class="tags1"><option value="UI"> UI</div>
+                        <div class="tags2"><option value="html preprocessor (pug、slim、haml)"> html preprocessor (pug、slim、haml)</div>
+                        <div class="tags3"><option value="CSS  web layout"> CSS  web layout</div>
+                        <div class="tags4"><option value="CSS Flexbox"> CSS Flexbox</div>
+                        <div class="tags5"><option value="CSS Grid"> CSS Grid</div>
+                        <div class="tags6"><option value="CSS Animation"> CSS Animation</div>
+                        <div class="tags7"><option value="CSS preprocessor (Sass、Less)"> CSS preprocessor (Sass、Less)</div>
+                        <div class="tags8"><option value="CSS Framework (Bootstrap、Pure、other)"> CSS Framework (Bootstrap、Pure、other)</div>
+                        <div class="tags9"><option value="Responsive Web Design"> Responsive Web Design</div>
+                        <div class="tags10"><option value="JavaScript"> JavaScript</div>
+                        <div class="tags11"><option value="ES6"> ES6</div>
+                        <div class="tags12"><option value="JavaScript API  (Google、FB service、other)"> JavaScript API  (Google、FB service、other)</div>
+                        <div class="tags13"><option value="AJAX"> AJAX</div>
+                        <div class="tags14"><option value="JavaScript Design Pattern"> JavaScript Design Pattern</div>
+                        <div class="tags15"><option value="React"> React</div>
+                        <div class="tags16"><option value="Vue"> Vue</div>
+                        <div class="tags17"><option value="Angular"> Angular</div>
+                        <div class="tags18"><option value="jQuery"> jQuery</div>
+                    </select>
+                </div>
+                </transition>
+            </div>
+        </div>
+        <!--  
+        wrapper 
+        -->
+        <div class="wrapper">
+            <div class="wrappertitle">
+                <div class="wrappertitlediv1">
+                    目前取回資料：{{ length }} 筆
+                </div>
+                <div class="wrappertitlediv2">
+                    目前參賽人數：{{ contents2.total }}
+                    <a href="./verification.html"><button class="searchbtn">查詢參賽</button></a>
+                </div>
+                <!-- <div class="wrappertitlediv3">
+                    <div>Filter: <input type="text" v-model="filter_name"></div>
+                </div> -->
+                <div class="wrappertitlediv3">
+                    <span v-show="selectedstages!==''">
+                        查詢條件：
+                        關卡{{ selectedstages }}
+                    </span>
+                    <span v-show="selectedtags!==''"> 
+                        & Tags：{{ selectedtags }}
+                    </span>
+                </div>
+            </div>
+            
+            <table class="table">
+                <tr>
+                  <th>stage</th>
+                  <th>tags</th>
+                  <th>url</th>
+                </tr>
+                <tr v-show="(selectedstages=='' || selectedtags=='') && length!=0 " v-for="(r, index) in filteredRows.slice(pageStart, pageStart + countOfPage)">
+                  <td>{{ r.stage }}</td>
+                  <td>{{ r.tag }}</td>
+                  <td><a v-bind:href="r.url" target="_blank">click</a></td>
+                </tr>
+                <tr v-show="length!==0" v-for="(r, index) in contents_tags.slice(pageStart, pageStart + countOfPage)">
+                    <td>{{ r.stage }}</td>
+                    <td>{{ r.tag }}</td>
+                    <td><a v-bind:href="r.url" target="_blank">click</a></td>
+                </tr>
+              </table>
+              <div v-show="length==0">
+                  目前尚未有人繳交。
+              </div>
+            <!-- 
+            pages
+            -->
+            <div class="pagination">
+                <ul>
+                    <li v-bind:class="{'disabled': (currPage === 1)}" 
+                    @click.prevent="setPage(currPage-1)"><a href="#">Prev</a></li>
+                    <li v-for="n in totalPage" v-bind:class="{'active': (currPage === (n))}" 
+                    @click.prevent="setPage(n)"><a href="#">{{n}}</a></li>
+                    <li v-bind:class="{'disabled': (currPage === totalPage)}" 
+                    @click.prevent="setPage(currPage+1)"><a href="#">Next</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <script>
+        new Vue ({
+            el: '#app',
+            data: {
+                tagsarrow: true,
+                tagsarrow_v: 0,
+                stagesarrow: true,
+                stagearrow_v: 0,
+                contents: [],
+                contents2: [],
+                contents_tags: [],
+                length: '',
+                countOfPage: 10,
+                currPage: 1,
+                filter_name: '',
+                selectedstages: '',
+                selectedtags: '',
+            },
+            computed: {
+                filteredRows: function(){
+                    var filter_name = this.filter_name.toLowerCase();
+                    return ( this.filter_name.trim() !== '' ) ? 
+                    this.contents.filter(function(d){ return d.tag.toLowerCase().indexOf(filter_name) > -1; }) : 
+                    this.contents;
+                },
+                pageStart: function(){
+                    return (this.currPage - 1) * this.countOfPage;
+                },
+                totalPage: function(){
+                    return Math.ceil(this.filteredRows.length / this.countOfPage);
+                }
+            },
+            methods:{
+                setPage: function(idx){
+                    if( idx <= 0 || idx > this.totalPage ){
+                        return;
+                    }
+                    this.currPage = idx;
+                },selectstages(){
+                    if(this.selectedtags==''){
+                        axios.get(`https://www.thef2e.com/api/codeList?stage=${this.selectedstages}`).then((res) => {
+                            console.log(res);
+                            this.contents_tags = res.data;
+                            this.length = res.data.length;
+				        })
+                    }else{
+                        axios.get(`https://www.thef2e.com/api/codeList?stage=${this.selectedstages}&tag=${this.selectedtags}`).then((res) => {
+                            console.log(res);
+                            this.contents_tags = res.data;
+                            this.length = res.data.length;
+				        })
+                    }
+                    
+                },selecttags(){
+                    if(this.selectedstages==''){
+                        axios.get(`https://www.thef2e.com/api/codeList?tag=${this.selectedtags}`).then((res) => {
+                            console.log(res);
+                            this.contents_tags = res.data;
+                            this.length = res.data.length;
+				        })
+                    }else{
+                        axios.get(`https://www.thef2e.com/api/codeList?stage=${this.selectedstages}&tag=${this.selectedtags}`).then((res) => {
+                            console.log(res);
+                            this.contents_tags = res.data;
+                            this.length = res.data.length;
+				        })
+                    }
+
+                }
+            },mounted(){
+                axios.get('https://www.thef2e.com/api/codeList').then((res) => {
+					console.log(res);
+                    this.contents = res.data;
+                    this.length = res.data.length;
+				}),
+                axios.get('https://www.thef2e.com/api/signUpTotal').then((res) => {
+					console.log(res);
+                    this.contents2 = res.data;
+				})
+            },
+        })
+    </script>
+</body>
+</html>

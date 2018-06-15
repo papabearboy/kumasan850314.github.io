@@ -1,0 +1,143 @@
+html,body{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+/* -----------------------------------------------
+header
+ -----------------------------------------------*/
+.header{
+    margin-bottom:10px;
+    display: flex;
+    height: 50px;
+    background: #bee6f4;
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.274), 0 0px 20px 0 rgba(0, 0, 0, 0.15);
+}
+    .headertitle{
+        padding: 2vh;
+        font-weight: 200;
+        font-size: 1.5em;
+        color: #224ce5;
+    }
+
+/* -----------------------------------------------
+main
+ -----------------------------------------------*/
+.main{
+    display: flex;
+    width: 90%;
+    margin: 0px auto;
+}
+input[type=radio] {
+    transform: scale(1.5);
+    margin-right: 10px;
+    background-color: white;
+}
+    /* -----------------------------------------------
+    sidemenu
+    -----------------------------------------------*/
+    .sidemenu{
+        flex: 1;
+        padding: 0px 20px;
+        margin-right: 5px;
+        background: #EBEBEB;
+        border-radius: 10px;
+    }
+        .stages{
+            margin-bottom: 10px;
+        }
+                .stageflex div, .tagsflex div{
+                    padding: 5px;
+                    font-size: 1.25em;
+                }
+    /* -----------------------------------------------
+    wrapper
+    -----------------------------------------------*/
+    .wrapper{
+        flex: 7;
+        padding: 5px 20px;
+        background: #F2F2F2;
+        border-radius: 10px;
+        font-size: 1.25em;
+    }
+    /* -----------------------------------------------
+    wrapper title
+    -----------------------------------------------*/
+        .wrappertitle{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+            .searchbtn{
+                background: #31b0d5;
+                color: white;
+                padding: 5px;
+                border: none;
+                border-radius: 5px;
+                cursor: pointer;
+            }
+            .searchbtn:hover{
+                background: #c6c2c2;
+            }
+    /* -----------------------------------------------
+    wrapper maindiv
+    -----------------------------------------------*/
+    .wrappermain{
+        display: flex;
+        flex-direction: column;
+    }
+    .wrappermain>a{
+        text-decoration: none;
+        color: black;
+    }
+        .wrappermaindiv{
+            background: white;
+            padding: 10px;
+            margin: 5px;
+        }
+            .wrappertitlediv1{
+                padding-top: 3px;
+            }        
+            .wrappertitlediv2{
+                padding-bottom: 3px;
+            }
+/* -----------------------------------------------
+Vue Animation
+ -----------------------------------------------*/
+    .fold-enter-active {
+        transition: all .5s ease;
+    }
+    .fold-leave-active {
+        transition: all .25s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+    }
+    .fold-enter, .fold-leave-to{
+        transform: translateX(50px);
+        opacity: 0;
+    }
+
+@media screen and (max-width:1360px) { 
+    .wrappertitle{
+        display: grid;
+        grid-template-areas: 
+        "B1 B2"
+        "B3 B3";
+    }
+    .wrappertitlediv1{
+        grid-area: B1;
+    }
+    .wrappertitlediv2{
+        grid-area: B2;
+    }  
+    .wrappertitlediv3{
+        grid-area: B3;
+    }
+}
+@media screen and (max-width:800px) { 
+    .wrappertitle{
+        display: grid;
+        grid-template-areas: 
+        "B1"
+        "B2"
+        "B3";
+    }
+}

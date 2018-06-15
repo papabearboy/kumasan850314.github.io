@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>The F2E 前端修練精神時光屋報名查詢</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<link rel=stylesheet type="text/css" href="./index.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.5.16/vue.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/3.0.1/vue-router.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vuex/3.0.1/vuex.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.js"></script>
+</head>
+<body>
+    <header class="header">
+        <img src="https://scontent.ftpe1-3.fna.fbcdn.net/v/t1.0-9/32244046_1907530319266604_3333847490255388672_o.jpg?_nc_cat=0&oh=a16d79a0e6d4a2a44d36213387f17380&oe=5BB4F999" alt="f2e前端修煉精神時光屋">
+    </header>
+    <section class="main">
+        <div id="app">
+            <h2>The F2E 前端修練精神時光屋報名查詢</h2>
+            Mail:<input type="text" v-model.trim="input" size="30">
+            <a href="javascript:;" @click="verification()"><button class="searchbtn">查詢</button></a>
+            <div v-show="content_success">
+                {{ contents.nickName }}{{ contents.message }}
+            </div>
+            <div v-show="content_fail">
+                {{contents.message}}
+            </div>
+        </div>
+    </section>
+	<script>
+            new Vue({
+                el: '#app', //綁定要作用的div id
+                data:{
+                    input: '', // 一開始先設空字串
+                    contents:[], // 一開始先設空陣列
+                    content_success: '',
+                    content_fail: '',
+                },
+                methods: {
+                    verification(){
+                        if(!this.input) return false;
+                        this.content_success = false;
+                        this.content_fail = false;
+                        this.contents= [];
+                        this.content = '' ; 
+                        axios.post('https://www.thef2e.com/api/isSignUp',{
+						    "email": this.input
+                        }).then((res) => {
+                            this.input = '';
+                            this.contents = res.data;
+                            if(this.contents.success==false)
+                                this.content_fail = true;
+                            else
+                                this.content_success = true;
+                            console.log(res);
+                        })
+                    }
+                },
+                mounted() {
+
+                },
+            })
+        </script>
+</body>
+</html>
