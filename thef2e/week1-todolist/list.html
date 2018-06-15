@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+<link rel="stylesheet" href="style.css"/>
+</head>
+<style>
+*{
+}
+	html,body{
+		background: #E1E1E1;
+		box-sizing: border-box;
+		margin: 0px;
+		padding: 0px;
+	}
+/*
+-------------------------
+title
+-------------------------	
+*/		
+		.title{
+			background: #4a90e2;
+			box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2), 0 0px 20px 0 rgba(0, 0, 0, 0.15);
+			opacity: 0.8;
+			color: black;
+			text-align: right;
+			width: 100%;
+		}
+			.titletextdiv{
+				margin: 0px auto;
+				width: 80%;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+				font-size: 1.5em;
+			}
+				.titletext1,.titletext2,.titletext3{
+					cursor: pointer;
+				}
+				.titletext1{
+					padding: 10px 10px;
+					border: 1px solid orange;
+					border-radius: 10px;
+					background: #ffaf60;
+					color: white;
+				}
+/*
+-------------------------
+main
+-------------------------	
+*/	
+		.main{
+			margin: 0px auto;
+			height: 90%;
+			width: 65%;
+		}
+			.addtask{
+				box-sizing: border-box;
+				width: 100%;	
+				margin-top: 15px;
+				padding: 10px;
+				font-size: 1.5em;
+				border: 1px solid #cecccc;
+				border-radius: 5px;
+			}
+			.tasklist_common1,.tasklist_common2{
+				border: 1px solid #FFF2DC;
+				border-radius: 5px;
+				background: #FFF2DC;
+				margin-top: 10px;
+				padding: 10px;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
+			}
+			.tasklist_common2{
+				border: 1px solid #F2F2F2;
+				background: #F2F2F2;
+			}
+				.checkbox_common{
+					padding-left: 20px;
+					flex: 50px;
+					flex-grow: 0;
+				}
+				.main_common{
+					flex: 13;
+				}
+				.items_common{
+					flex: 4;
+				}
+				input[type=checkbox]{
+					transform: scale(2);
+				}
+				.item_calendar,.item_page,.item_msg{
+					padding-right: 5px; 
+				}
+				.item_star-full,.item_star-empty{
+					padding-right: 50px;
+				}
+		.count{
+			font-size: 1.5em;
+		}
+</style>
+<body>
+	<div class="title">
+		<div class="titletextdiv">
+			<span class="titletext1">My Tasks</span>
+			<span class="titletext2">In Progress</span>
+			<span class="titletext3">Complted</span>			
+		</div>
+	</div>
+
+	<div class="main">
+		<input class="addtask" type="text" placeholder="+ addtask">
+
+		<div class="tasklist_common1 tasklist1">
+			<div class="checkbox_common tasklist1_checkbox">
+				<input type="checkbox">
+			</div>
+			<div class="main_common tasklist1_main">
+				<div>
+					<h3>Type Something Here…</h3>
+				</div>
+				<div>
+					<span class="icon-calendar item_calendar"> 5/14 </span>
+					<span class="icon-file-text2 item_page"></span>
+					<span class="icon-message-typing item_msg"></span>
+				</div>
+			</div>
+			<div class="items_common tasklist1_items">
+				<span class="icon-star-full item_star-full"></span>
+				<span class="icon-pencil item_pen"></span>
+			</div>
+		</div>
+		<div class="tasklist_common1 tasklist2">
+			<div class="checkbox_common tasklist2_checkbox">
+				<input type="checkbox">
+			</div>
+			<div class="main_common tasklist2_main">
+				<div>
+					<h3>Type Something Here…</h3>
+				</div>
+				<div>
+					<span class="icon-file-text2 item_page"></span>
+					<span class="icon-message-typing item_msg"></span>
+				</div>
+			</div>
+			<div class="items_common tasklist2_items">
+				<span class="icon-star-full item_star-full"></span>
+				<span class="icon-pencil icon-pencil"></span>
+			</div>
+		</div>
+		<div class="tasklist_common2 tasklist3">
+			<div class="checkbox_common tasklist3_checkbox">
+				<input type="checkbox">
+			</div>
+			<div class="main_common tasklist3_main">
+				<div>
+					<h3>Type Something Here…</h3>
+				</div>
+				<div>
+					<span class="icon-calendar item_calendar"> 6/18 </span>
+				</div>
+			</div>
+			<div class="items_common tasklist3_items">
+				<span class="icon-star-empty item_star-empty"></span>
+				<span class="icon-pencil icon-pencil"></span>
+			</div>
+		</div>
+		<div class="tasklist_common2 tasklist4">
+			<div class="checkbox_common tasklist4_checkbox">
+				<input type="checkbox">
+			</div>
+			<div class="main_common tasklist4_main">
+				<div>
+					<h3>Type Something Here…</h3>
+				</div>
+				<div>
+					<span class="icon-file-text2 item_page"></span>
+				</div>
+			</div>
+			<div class="items_common tasklist4_items">
+				<span class="icon-star-empty item_star-empty"></span>
+				<span class="icon-pencil icon-pencil"></span>
+			</div>
+		</div>
+		<div class="tasklist_common2 tasklist5">
+			<div class="checkbox_common tasklist5_checkbox">
+				<input type="checkbox" checked>
+			</div>
+			<div class="main_common tasklist5_main">
+				<div>
+					<h3><STRIKE>Type Something Here…</STRIKE></h3>
+				</div>
+			</div>
+			<div class="items_common tasklist5_items">
+				<span class="icon-star-empty item_star-empty"></span>
+				<span class="icon-pencil icon-pencil"></span>
+			</div>
+		</div>
+
+		<div class="count">
+			<p><i>4 tasks left</i></p>
+		</div>
+	</div>
+	<!-- <span class="icon-message-typing"></span>
+	<span class="icon-pencil"></span>
+	<span class="icon-file-text2"></span>
+	<span class="icon-calendar"></span>
+	<span class="icon-star-empty"></span>
+	<span class="icon-star-full"></span>
+	<span class="icon-checkmark"></span>
+ --></body>
+</html>
