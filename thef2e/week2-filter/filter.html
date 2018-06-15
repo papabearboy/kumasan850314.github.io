@@ -98,7 +98,7 @@
         <div class="wrapper">
             <div class="wrappertitle">
                 <div class="wrappertitlediv1">
-                    目前取回資料：{{ length }} 筆
+                    目前取回資料：{{ datalength }} 筆
                 </div>
                 <div class="wrappertitlediv2">
                     目前參賽人數：{{ contents2.total }}
@@ -129,13 +129,13 @@
                   <td>{{ r.tag }}</td>
                   <td><a v-bind:href="r.url" target="_blank">click</a></td>
                 </tr>
-                <tr v-show="length!==0" v-for="(r, index) in contents_tags.slice(pageStart, pageStart + countOfPage)">
+                <tr v-show="datalength!==0" v-for="(r, index) in contents_tags.slice(pageStart, pageStart + countOfPage)">
                     <td>{{ r.stage }}</td>
                     <td>{{ r.tag }}</td>
                     <td><a v-bind:href="r.url" target="_blank">click</a></td>
                 </tr>
               </table>
-              <div v-show="length==0">
+              <div v-show="datalength==0">
                   目前尚未有人繳交。
               </div>
             <!-- 
@@ -164,7 +164,7 @@
                 contents: [],
                 contents2: [],
                 contents_tags: [],
-                length: '',
+                datalength: '',
                 countOfPage: 10,
                 currPage: 1,
                 filter_name: '',
@@ -179,10 +179,12 @@
                     this.contents;
                 },
                 pageStart: function(){
+                    // 從多少開始
                     return (this.currPage - 1) * this.countOfPage;
                 },
                 totalPage: function(){
-                    return Math.ceil(this.filteredRows.length / this.countOfPage);
+                    // 總筆數 / 要分幾筆 -> 無條件進位
+                    return Math.ceil(this.datalength / this.countOfPage);
                 }
             },
             methods:{
@@ -196,37 +198,35 @@
                         axios.get(`https://www.thef2e.com/api/codeList?stage=${this.selectedstages}`).then((res) => {
                             console.log(res);
                             this.contents_tags = res.data;
-                            this.length = res.data.length;
+                            this.datalength = res.data.length;
 				        })
                     }else{
                         axios.get(`https://www.thef2e.com/api/codeList?stage=${this.selectedstages}&tag=${this.selectedtags}`).then((res) => {
                             console.log(res);
                             this.contents_tags = res.data;
-                            this.length = res.data.length;
+                            this.datalength = res.data.length;
 				        })
                     }
-                    
                 },selecttags(){
                     if(this.selectedstages==''){
                         axios.get(`https://www.thef2e.com/api/codeList?tag=${this.selectedtags}`).then((res) => {
                             console.log(res);
                             this.contents_tags = res.data;
-                            this.length = res.data.length;
+                            this.datalength = res.data.length;
 				        })
                     }else{
                         axios.get(`https://www.thef2e.com/api/codeList?stage=${this.selectedstages}&tag=${this.selectedtags}`).then((res) => {
                             console.log(res);
                             this.contents_tags = res.data;
-                            this.length = res.data.length;
+                            this.datalength = res.data.length;
 				        })
                     }
-
                 }
             },mounted(){
                 axios.get('https://www.thef2e.com/api/codeList').then((res) => {
 					console.log(res);
                     this.contents = res.data;
-                    this.length = res.data.length;
+                    this.datalength = res.data.length;
 				}),
                 axios.get('https://www.thef2e.com/api/signUpTotal').then((res) => {
 					console.log(res);
