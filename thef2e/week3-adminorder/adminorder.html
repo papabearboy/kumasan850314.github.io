@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>adminorder</title>
+<meta name="description" content="後台">
+<meta name="keywords" content="後台">
+<link href="./adminorder.css" rel="stylesheet">
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.min.js"></script>
+</head>
+<body>
+    <div class="header">
+        <div class="header-nav-Shoptime">Shoptime</div>
+        <div class="header-nav-Home">Home</div>
+        <div class="header-nav-Orders">Orders</div>
+        <div class="header-nav-Product">Product</div>
+        <div class="header-nav-Admin">Admin</div>
+    </div>
+
+    <div class="wrapper">
+        <!-- title -->
+        <div class="wrapper-title">
+            <div class="wrapper-title-sub1">Overview</div>
+            <div class="wrapper-title-sub2">2018/6/6 > 2018/6/13 
+                <select>
+                    <option value="">Daily</option>
+                    <option value="">Weekly</option>
+                    <option value="">Monthly</option>
+                    <option value="">Yearly</option>
+                    <option value="">Custom</option>
+                </select>
+            </div>
+        </div>
+        <!-- main1 -->
+        <div class="wrapper-main1">
+            <div class="wrapper-main1-div1">
+                <p>TOTAL REVENUE</p>
+                <p class="wrapper-main1-sub-style wrapper-main1-sub-style1">54,540</pc>
+            </div>
+            <div class="wrapper-main1-div2">
+                <p>TOTAL COST</p>
+                <p class="wrapper-main1-sub-style wrapper-main1-sub-style2">12,660</p>
+            </div>
+            <div class="wrapper-main1-div3">
+                <p>NET INCOME</p>
+                <p class="wrapper-main1-sub-style wrapper-main1-sub-style3">41,880</p>
+            </div>
+        </div>
+        <!-- main2 -->
+        <div class="wrapper-main2">
+            <div id="chart" class="chart"></div>
+        </div>
+        <!-- main3 -->
+        <div class="wrapper-main3">
+            <div class="wrapper-main3-div1">
+                <div class="wrapper-main3-div1-title">
+                    Transaction Website
+                </div>
+                <div class="wrapper-main3-div1-main">
+                    <div class="wrapper-main3-div1-list">
+                        <div class="wrapper-main3-div1-item1"><img src="./images/facebook.png" alt=""></div>
+                        <div class="wrapper-main3-div1-item2">Facebook.com</div>
+                        <div class="wrapper-main3-div1-item3">45,836</div>
+                        <div class="wrapper-main3-div1-item4" style="color: #7ED321">20%</div>
+                    </div>
+                    <div class="wrapper-main3-div1-list">
+                        <div class="wrapper-main3-div1-item1"><img src="./images/google.png" alt=""></div>
+                        <div class="wrapper-main3-div1-item2">google.com</div>
+                        <div class="wrapper-main3-div1-item3">23,582</div>
+                        <div class="wrapper-main3-div1-item4" style="color: #7ED321">12%</div>
+                    </div>
+                    <div class="wrapper-main3-div1-list">
+                        <div class="wrapper-main3-div1-item1"><img src="./images/shopify.png" alt=""></div>
+                        <div class="wrapper-main3-div1-item2">Shopify.com</div>
+                        <div class="wrapper-main3-div1-item3">2,489</div>
+                        <div class="wrapper-main3-div1-item4" style="color: #D0021B">20%</div>
+                    </div>
+                    <div class="wrapper-main3-div1-list">
+                        <div class="wrapper-main3-div1-item1"><img src="./images/wordpress.png" alt=""></div>
+                        <div class="wrapper-main3-div1-item2">Wordpress.com</div>
+                        <div class="wrapper-main3-div1-item3">1,057</div>
+                        <div class="wrapper-main3-div1-item4" style="color: #D0021B">20%</div>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="wrapper-main3-div2">
+                <div class="wrapper-main3-div2-title">
+                    Latest Order
+                </div>
+                <div class="wrapper-main3-div2-main">
+                    <div class="wrapper-main3-div2-list">
+                        <div class="wrapper-main3-div2-item1"><img src="./images/boy.png" alt=""></div>
+                        <div class="wrapper-main3-div2-item2">Vintage T-shirt</div>
+                        <div class="wrapper-main3-div2-item3">2018/6/13 13:42</div>
+                        <div class="wrapper-main3-div2-item4">Belle Willis</div>
+                        <div class="wrapper-main3-div2-item5">Total</div>
+                        <div class="wrapper-main3-div2-item6">3,200</div>
+                    </div>
+                    <div class="wrapper-main3-div2-list">
+                        <div class="wrapper-main3-div2-item1"><img src="./images/girl.png" alt=""></div>
+                        <div class="wrapper-main3-div2-item2">Cowboy Jacket</div>
+                        <div class="wrapper-main3-div2-item3">2018/6/13 10:45</div>
+                        <div class="wrapper-main3-div2-item4">Adrian Cummings</div>
+                        <div class="wrapper-main3-div2-item5">Total</div>
+                        <div class="wrapper-main3-div2-item6">2,800</div>
+                    </div>
+                    <div class="wrapper-main3-div2-list">
+                        <div class="wrapper-main3-div2-item1"><img src="./images/man.png" alt=""></div>
+                        <div class="wrapper-main3-div2-item2">Coach Coat</div>
+                        <div class="wrapper-main3-div2-item3">2018/6/13 8:26</div>
+                        <div class="wrapper-main3-div2-item4">Lura Holland</div>
+                        <div class="wrapper-main3-div2-item5">Total</div>
+                        <div class="wrapper-main3-div2-item6">1,600</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+    google.charts.load('current', {'packages':['line']});
+    google.charts.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+
+      var data = new google.visualization.DataTable();
+      data.addColumn('number', 'Month');
+      data.addColumn('number', 'TOTAL REVENUE');
+      data.addColumn('number', 'TOTAL COST');
+      data.addColumn('number', 'NET INCOME');
+
+      data.addRows([
+        [1,  8000, 6100, 900],
+        [2,  6800, 5300, 900],
+        [3,  6600, 5200, 1500],
+        [4,  6000, 4500, 2200],
+        [5,  5000, 4200, 2230],
+        [6,  6100, 2000, 2350],
+        [7,  6000, 2500, 2210],
+        [8,  6500, 4000, 2100],
+        [9,  6100, 4300, 1900],
+        [10, 6000, 4702, 1500],
+        [11, 6000, 5300, 2100],
+        [12, 6500, 5900, 2600]
+      ]);
+
+      var options = {
+        chart: {
+          title: 'Activity',
+        }
+      };
+
+      var chart = new google.charts.Line(document.getElementById('chart'));
+
+      chart.draw(data, google.charts.Line.convertOptions(options));
+    }
+
+    $(window).resize(function(){
+        drawChart();
+    });
+
+    </script>
+</body>
+</html>
