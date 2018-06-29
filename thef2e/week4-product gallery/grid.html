@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+</head>
+<style type="text/css">
+	html, body{
+		margin: 0;
+		padding: 0;
+		box-sizing: border-box;
+		margin: 0px auto;
+		text-align: center;
+		width: 85%;
+	}
+	.title1{
+		padding: 5px;
+		background: black;
+		color: white;
+	}
+	.title2{
+		font-size: 72pt;
+	}
+	.item{
+		display: grid;
+		/*如果子層指定格線超出 會自動產出隱形格線的感覺*/
+		grid-template-columns: repeat(9, 1fr);
+    	grid-template-rows: repeat(22, 1fr);
+		font-size: 30pt;
+	}
+	.item1{
+		position: relative;
+		background-image: url(https://images.unsplash.com/photo-1513827379601-9dba5099a3f9?ixlib=rb-0.3.5…jEyMDd9&s=1acdd78…&auto=format&fit=crop&w=634&q=80);
+		background-position: center;
+    	background-size: cover;
+		grid-row: 2/6;
+		grid-column: 1/5;
+		width: 480px;
+		height: 400px;
+	}
+	.item2{
+		position: relative;
+		background-image: url(https://images.unsplash.com/photo-1514632542677-48fae74a01b2?ixlib=rb-0.3.5…jEyMDd9&s=cf412ac…&auto=format&fit=crop&w=634&q=80);
+		background-position: center;
+		background-size: cover;
+		grid-row: 3/5;
+		grid-column: 6/8;
+
+	}
+	.item3{
+		position: relative;
+		background-image: url("https://images.unsplash.com/photo-1496345875659-11f7dd282d1d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0f994eef47e5fb1a67849703cc961b3&auto=format&fit=crop&w=1350&q=80");
+		background-position: center;
+		background-size: cover;
+		grid-row: 8/10;
+		grid-column: 1/5;
+	}
+	.item4{
+		position: relative;
+		background-image: url("https://images.unsplash.com/photo-1484516758160-69878111a911?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=39466d66952b133d5a5cff642b970d05&auto=format&fit=crop&w=687&q=80");
+		background-position: center;
+		background-size: cover;
+		grid-row: 8/12;
+		grid-column: 7/9;
+	}
+	.item5{
+		position: relative;
+		background-image: url("https://images.unsplash.com/photo-1525448198276-222de3961638?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=43fb25556cdbd191e520c7f28739e40d&auto=format&fit=crop&w=1350&q=80");
+		background-position: center;
+		background-size: cover;
+		grid-row: 14/16;
+		grid-column: 3/5;
+	}
+	.item6{
+		position: relative;
+		background-image: url("https://images.unsplash.com/photo-1519406709381-c1f293304b28?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=98c497a29f229085d9574ee8b6eeef8c&auto=format&fit=crop&w=634&q=80");
+		background-position: center;
+		background-size: cover;
+		grid-row: 16/20;
+		grid-column: 5/9;
+	}
+	.item7{
+		position: relative;
+		background-image: url("https://images.unsplash.com/photo-1516914943479-89db7d9ae7f2?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=63ff45d79414b3166b08b800a32018be&auto=format&fit=crop&w=634&q=80");
+		background-position: center;
+		background-size: cover;
+		grid-row: 18/22;
+		grid-column: 1/3;
+	}
+	.item1-title, .item2-title, .item3-title, .item4-title, .item5-title, .item6-title, .item7-title{
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	.item1-title::after {
+		content: "LINEN BLAZER";
+		position: absolute;
+		top: -10px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.3);
+	}
+	.item1-title::before {
+		content: "LINEN BLAZER";
+		position: absolute;
+		top: -20px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.1);
+	}
+	.item2-title::after {
+		content: "FREELIFT";
+		position: absolute;
+		top: -10px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.3);
+	}
+	.item2-title::before {
+		content: "FREELIFT";
+		position: absolute;
+		top: -20px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.1);
+	}
+	.item3-title::after {
+		content: "SUPER SKINNY";
+		position: absolute;
+		top: -10px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.3);
+	}
+	.item3-title::before {
+		content: "SUPER SKINNY";
+		position: absolute;
+		top: -20px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.1);
+	}
+	.item4-title::after {
+		content: "DENIM";
+		position: absolute;
+		top: -10px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.3);
+	}
+	.item4-title::before {
+		content: "DENIM";
+		position: absolute;
+		top: -20px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.1);
+	}
+	.item5-title::after {
+		content: "SWEATSHIRTS";
+		position: absolute;
+		top: -10px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.3);
+	}
+	.item5-title::before {
+		content: "SWEATSHIRTS";
+		position: absolute;
+		top: -20px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.1);
+	}
+	.item6-title::after {
+		content: "VINTAGE DENIM";
+		position: absolute;
+		top: -10px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.3);
+	}
+	.item6-title::before {
+		content: "VINTAGE DENIM";
+		position: absolute;
+		top: -20px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.1);
+	}
+	.item7-title::after {
+		content: "EDITION";
+		position: absolute;
+		top: -10px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.3);
+	}
+	.item7-title::before {
+		content: "EDITION";
+		position: absolute;
+		top: -20px;
+		left: 0;
+		color: rgba(0, 0, 0, 0.1);
+	}					
+	.item1-box{
+		position: absolute;
+		top: -50px;
+		right: -50px;
+		width: 240px;
+		height: 200px;
+		border: 20px solid #50E3C2;
+		z-index: -1;
+	}
+	.item1-number{
+		position: absolute;
+		left: 0;
+		bottom: -50px;
+	}
+	.item1-pic{
+		position: absolute;
+		left: 50px;
+		bottom: -50px;
+		width: 240px;
+    	height: 100px;
+    	background-size: 40px 40px;
+    	z-index: 2;
+		background-image: linear-gradient(135deg, #50E3C2 25%, transparent 0, transparent 50%, #50E3C2 0, #50E3C2 75%, transparent 0);
+	}
+	.item1-text{
+		position: absolute;
+		right: -115px;
+		bottom: 50px;
+		transform:rotate(90deg);
+	}
+</style>
+<body>
+<!--     <div class="con">
+    	<div class="AA">AA</div>
+    	<div class="BB">BB</div>
+    	<div class="CC">CC</div>
+    	<div class="DD">DD</div>
+    	<div class="EE">EE</div>
+    	<div class="FF">FF</div>
+    	<div class="GG">GG</div>
+    	<div class="HH">HH</div>
+    </div> -->
+
+    <div ><span class="title1">CCCLOTHES</span></div>
+    <div class="title2">MEN’S TOPS</div>
+    
+    <div class="item">
+    	<div class="item1">
+    		<div class="item1-title">LINEN BLAZER</div>
+    		<div class="item1-box"></div>
+    		<div class="item1-number">01</div>
+    		<div class="item1-pic"></div>
+    		<div class="item1-text">Men’s outfit</div>
+    	</div>
+    	<div class="item2">
+    		<div class="item2-title">FREELIFT</div>
+    	</div>
+    	<div class="item3">
+    		<div class="item3-title">SUPER SKINNY</div>
+    	</div>
+    	<div class="item4">
+    		<div class="item4-title">DENIM</div>
+    	</div>
+    	<div class="item5">
+    		<div class="item5-title">SWEATSHIRTS</div>
+    	</div>
+    	<div class="item6">
+    		<div class="item6-title">VINTAGE DENIM</div>
+    	</div>
+    	<div class="item7">
+    		<div class="item7-title">EDITION</div>
+    	</div>
+    </div>
+</body>
+</html>
