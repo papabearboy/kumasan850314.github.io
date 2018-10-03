@@ -157,21 +157,30 @@
         new Vue ({
             el: '#app',
             data: {
+                //沒用到的特效變數
                 tagsarrow: true,
                 tagsarrow_v: 0,
                 stagesarrow: true,
                 stagearrow_v: 0,
+                //一開始畫面的預覽資料
                 contents: [],
+                //總參加人數
                 contents2: [],
+                //當有選擇條件後的資料
                 contents_tags: [],
+                //判斷有無資料
                 datalength: '',
+                //一個分頁有幾筆資料
                 countOfPage: 10,
                 currPage: 1,
                 filter_name: '',
+                //存選取關卡變數
                 selectedstages: '',
+                //存選取TAGS變數
                 selectedtags: '',
             },
             computed: {
+                //分頁
                 filteredRows: function(){
                     var filter_name = this.filter_name.toLowerCase();
                     return ( this.filter_name.trim() !== '' ) ? 
@@ -188,26 +197,37 @@
                 }
             },
             methods:{
+                //分頁
                 setPage: function(idx){
                     if( idx <= 0 || idx > this.totalPage ){
                         return;
                     }
                     this.currPage = idx;
-                },selectstages(){
+                },
+                //@change="selectstages()
+                selectstages(){
+                    //resetpage
+                    this.currPage = 1;
+                    //如果tags是空的就只傳關卡
                     if(this.selectedtags==''){
                         axios.get(`https://www.thef2e.com/api/codeList?stage=${this.selectedstages}`).then((res) => {
-                            console.log(res);
+                            //console.log(res);
                             this.contents_tags = res.data;
                             this.datalength = res.data.length;
 				        })
                     }else{
+                    //else 有關卡+tags 就傳關卡+tags
                         axios.get(`https://www.thef2e.com/api/codeList?stage=${this.selectedstages}&tag=${this.selectedtags}`).then((res) => {
-                            console.log(res);
+                            //console.log(res);
                             this.contents_tags = res.data;
                             this.datalength = res.data.length;
 				        })
                     }
-                },selecttags(){
+                },
+                //@change="selecttags()"
+                selecttags(){
+                    //resetpage
+                    this.currPage = 1;
                     if(this.selectedstages==''){
                         axios.get(`https://www.thef2e.com/api/codeList?tag=${this.selectedtags}`).then((res) => {
                             console.log(res);
@@ -223,11 +243,13 @@
                     }
                 }
             },mounted(){
+                //一開始進入畫面的預覽資料
                 axios.get('https://www.thef2e.com/api/codeList').then((res) => {
 					console.log(res);
                     this.contents = res.data;
                     this.datalength = res.data.length;
 				}),
+                //一開始進入畫面的參加人數
                 axios.get('https://www.thef2e.com/api/signUpTotal').then((res) => {
 					console.log(res);
                     this.contents2 = res.data;
