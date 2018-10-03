@@ -146,4 +146,7 @@ Vue Animation
     .main{
         flex-direction: column;
     }
+    .sidemenu{
+        margin-right: 0px;
+    }
 }
