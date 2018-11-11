@@ -1,0 +1,80 @@
+.icon {
+  position: fixed;
+  bottom: 3%;
+  right: 2%;
+}
+
+.select {
+  color: black;
+  font-weight: normal;
+}
+
+.selected {
+  color: #4A89DC;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1600px) {
+  .main_banner img, .main_character img, .icon img {
+    height: auto;
+    max-width: 100%;
+    border-radius: 10px;
+  }
+  main {
+    margin-left: 340px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  main {
+    margin: 0 auto;
+    padding: 0;
+    margin-top: 1rem;
+    text-align: center;
+  }
+  nav {
+    position: relative;
+    display: none;
+  }
+  header {
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+    left: 0;
+    top: 0;
+    text-align: center;
+  }
+}
+
+@media screen and (max-width: 750px) {
+  .main_banner img {
+    max-width: 95%;
+  }
+}
+
+@media screen and (max-width: 548px) {
+  .main_character {
+    text-align: left;
+    display: inline-block;
+    max-width: 70%;
+  }
+}
+
+.hamburger-menu {
+  cursor: pointer;
+  position: absolute;
+  top: 15px;
+  right: 5px;
+  background: none;
+  border: none;
+  display: inline-block;
+  z-index: 101;
+}
+
+.hamburger-menu > .icon-bar {
+  background-color: black;
+  display: block;
+  height: 4px;
+  margin: 0 auto 4px;
+  width: 30px;
+}
