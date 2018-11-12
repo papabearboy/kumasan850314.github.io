@@ -61,12 +61,21 @@ main > img {
 
 .main_title {
   font-size: 24px;
+  padding-top: 10px;
+}
+
+.main_title:not(first-child) {
+  border-top: 1px solid orange;
 }
 
 main img {
   margin: 10px 0;
   padding: 1px;
   border: 1px solid black;
+}
+
+.main_character span {
+  font-weight: bold;
 }
 
 * {
