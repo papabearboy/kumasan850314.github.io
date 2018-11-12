@@ -15,13 +15,27 @@
 }
 
 @media screen and (max-width: 1600px) {
-  .main_banner img, .main_character img, .icon img {
+  .main_banner img, .icon img {
     height: auto;
     max-width: 100%;
     border-radius: 10px;
   }
+  .main_character img {
+    height: auto;
+    max-width: 80%;
+    border-radius: 10px;
+  }
+}
+
+@media screen and (max-width: 1400px) {
   main {
-    margin-left: 340px;
+    padding-left: 350px;
+  }
+}
+
+@media screen and (max-width: 1100px) {
+  main {
+    padding-left: 400px;
   }
 }
 
@@ -44,6 +58,9 @@
     top: 0;
     text-align: center;
   }
+  .icon {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -57,6 +74,15 @@
     text-align: left;
     display: inline-block;
     max-width: 70%;
+  }
+  header {
+    font-size: 24px;
+  }
+  .main_title {
+    font-size: 16px;
+  }
+  main {
+    font-size: 12px;
   }
 }
 
