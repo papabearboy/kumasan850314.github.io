@@ -22,7 +22,7 @@
   }
   .main_character img {
     height: auto;
-    max-width: 80%;
+    max-width: 50%;
     border-radius: 10px;
   }
 }
@@ -42,9 +42,20 @@
 @media screen and (max-width: 1000px) {
   main {
     margin: 0 auto;
-    padding: 0;
+    padding: 0px;
     margin-top: 1rem;
-    text-align: center;
+  }
+  .main_title {
+    padding: 0px 10px;
+  }
+  .main_character {
+    padding: 0px 10px;
+  }
+  .main_character img {
+    max-width: 50%;
+  }
+  .main_banner img {
+    max-width: 70%;
   }
   nav {
     position: relative;
@@ -63,17 +74,10 @@
   }
 }
 
-@media screen and (max-width: 750px) {
-  .main_banner img {
-    max-width: 95%;
-  }
-}
-
 @media screen and (max-width: 548px) {
   .main_character {
-    text-align: left;
     display: inline-block;
-    max-width: 70%;
+    max-width: 100%;
   }
   header {
     font-size: 24px;
