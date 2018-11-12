@@ -55,16 +55,12 @@ main {
   text-align: center;
 }
 
-main > img {
-  margin: 10px 0px;
-}
-
 .main_title {
   font-size: 24px;
-  padding-top: 10px;
+  margin-top: 10px;
 }
 
-.main_title:not(first-child) {
+main > div:not(:first-child) {
   border-top: 1px solid orange;
 }
 
@@ -74,8 +70,12 @@ main img {
   border: 1px solid black;
 }
 
-.main_character span {
+.main_character p:nth-child(3n+1) {
   font-weight: bold;
+}
+
+.main_character img {
+  display: inline-block;
 }
 
 * {
