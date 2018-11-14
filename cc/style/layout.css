@@ -7,20 +7,43 @@ header {
           box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.274), 0 0px 20px 0 rgba(0, 0, 0, 0.15);
   line-height: 50px;
   position: fixed;
+  top: 0;
   z-index: 100;
   background-color: #fff2f6;
 }
 
+.hamburger-menu {
+  cursor: pointer;
+  position: absolute;
+  top: 7px;
+  left: 10px;
+  background: none;
+  border: 1px solid gray;
+  display: inline-block;
+  z-index: 101;
+}
+
+.hamburger-menu > .icon-bar {
+  background-color: black;
+  display: block;
+  height: 4px;
+  margin: 5px auto 4px;
+  width: 30px;
+}
+
 nav {
+  display: none;
   width: 400px;
   position: fixed;
-  top: 55px;
+  top: 49px;
+  left: -400px;
   bottom: 0;
   z-index: 10;
+  background: #F9F9F9;
   overflow: auto;
   overflow-x: hidden;
   overflow-y: auto;
-  padding: 0px 30px 20px 50px;
+  padding: 0px 20px 20px 30px;
   border-right: 1px solid orange;
   font-size: 16px;
 }
@@ -43,13 +66,19 @@ a {
   color: black;
 }
 
+.top_btn {
+  display: none;
+  position: fixed;
+  bottom: 1%;
+  right: 30px;
+}
+
 main {
   line-height: 2rem;
   position: relative;
   max-width: 900px;
   margin: 0 auto;
   padding: 1.5rem 0;
-  padding-left: 300px;
   padding-top: 60px;
   font-size: 16px;
   text-align: center;
