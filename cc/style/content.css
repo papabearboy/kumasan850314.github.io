@@ -1,7 +1,7 @@
 .icon {
   position: fixed;
   bottom: 1%;
-  left: 0;
+  right: 0;
 }
 
 .select {
@@ -90,8 +90,11 @@
   main {
     font-size: 12px;
   }
+  .icon {
+    left: 0;
+  }
   .icon img {
-    width: 50%;
+    width: 20%;
   }
   .top_btn {
     display: block;
