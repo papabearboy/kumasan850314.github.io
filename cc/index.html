@@ -29,7 +29,8 @@
         <div id="app">
             <!-- <menu class="col-sm-12"></menu> -->
             <nav>
-                <a href="#20181129" id="nav_top">2018.11.29【傳勇池-27th】米拉、湖都女王<ul>レジェンドフェス開催！</ul></a>
+                <a href="#20181206" id="nav_top">2018.12.06【聖夜池】聖夜三星教授、米希<ul>「星は聖夜が来る前に」支援フェス 開催！</ul></a>
+                <a href="#20181129">2018.11.29【傳勇池-27th】米拉、湖都女王<ul>レジェンドフェス開催！</ul></a>
                 <a href="#20181124">2018.11.24【勇氣池】<ul>復刻ドラマチックバディフェス開催！</ul></a>
                 <a href="#20181120-1">2018.11.20【勇氣池】僧黑狗、湖都女主<ul>「第3部開放2周年記念フェス」開催！</ul></a>
                 <a href="#20181120-2">2018.11.20【復刻迷你主角池】<ul>チェインクロニクル【第3部開放2周年】記念！【復刻】スピンオフちびキャラフェス！</ul></a>
@@ -93,6 +94,7 @@
                 <div><a href="#nav_top"><button class="btn top_btn" >Top</button></a></div>
             </nav>
             <main>
+                <v-20181206></v-20181206>
                 <v-20181129></v-20181129>
                 <v-20181124></v-20181124>
                 <v-20181120-1></v-20181120-1>
@@ -167,6 +169,34 @@
     </div>
 </body>
     <script>
+        Vue.component('v-20181206', {
+            data: function () {
+                return {};
+            },
+            template: 
+                `<div>
+                    <div class="main_title" id="20181206">
+                        「星は聖夜が来る前に」支援フェス 開催！
+                    </div>
+                    <div class="main_banner">
+                        <img src="http://chronicle.sega-net.com/chronicle/upload_images/181206_MedalHuntFes_01.jpg" alt="">
+                    </div>
+                    <div class="main_bouns text-left">
+                        BOUNS :<br>
+                        ガチャ20回で&hellip;「SSR確定」ガチャが可能に！(※)<br />
+	                    ガチャ40回で&hellip;「SSR確定」ガチャが可能に！(※)<br />
+                        <hr>
+                    </div>
+                    <div class="main_character">
+                        <p>聖夜の三ツ星 リゲル<p>
+                        <img src="http://chronicle.sega-net.com/chronicle/upload_images/ae09dc25cd3165e9219ac88fbc543cbf6f7ebb35.jpg" alt="リゲル" title="リゲル">
+                        <p class="text-left">賢者の塔で行われる聖夜のお祭りを盛り上げるため、天文魔術をもっと多くの生徒に理解してもらうため、ひと肌脱いだリゲル。生徒たちと一緒になって、聖夜の準備に奔走している。</p>
+                        <p>聖夜の射手 ミシディア<p>
+                        <img src="http://chronicle.sega-net.com/chronicle/upload_images/2f5ab252cd666986a0d589b4ac80dc26b0c20d8e.jpg" alt="ミシディア" title="ミシディア">
+                        <p class="text-left">聖夜のパーティのために、とある古着屋でドレスを購入したミシディア。どうやらそれは、ただのドレスではない、曰くつきの逸品のようだが……その艶やかな姿に人々は魅了され、ミシディア本人もドレスの持つ魔力に酔いしれている。</p>
+                    </div>
+                </div>`
+        })
         Vue.component('v-20181129', {
             data: function () {
                 return {};
